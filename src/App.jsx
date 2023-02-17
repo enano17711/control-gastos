@@ -1,12 +1,19 @@
 import Header from './components/Header.jsx'
 import { useState } from 'react'
 import IconoNuevoGasto from './img/nuevo-gasto.svg'
+import Modal from './components/Modal.jsx'
 
 function App() {
     const [presupuesto, setPresupuesto] = useState(0)
     const [isValidPresupuesto, setIsValidPresupuesto] = useState(false)
     const [modal, setModal] = useState(false)
-    const handleNuevoGasto = () => {}
+    const [animarModal, setAnimarModal] = useState(false)
+    const handleNuevoGasto = () => {
+        setModal(true)
+        setTimeout(() => {
+            setAnimarModal(true)
+        }, 500)
+    }
 
     return (
         <div>
@@ -24,6 +31,13 @@ function App() {
                         onClick={handleNuevoGasto}
                     />
                 </div>
+            )}
+            {modal && (
+                <Modal
+                    setModal={setModal}
+                    animarModal={animarModal}
+                    setAnimarModal={setAnimarModal}
+                />
             )}
         </div>
     )
