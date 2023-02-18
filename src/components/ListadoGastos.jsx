@@ -1,7 +1,7 @@
 import React from 'react'
 import Gasto from './Gasto.jsx'
 
-const ListadoGastos = ({ gastos, setGastoEditar }) => {
+const ListadoGastos = ({ gastos, setGastoEditar, eliminarGasto }) => {
     return (
         <div className="listado-gastos contenedor">
             {gastos.length ? 'Gastos' : 'No hay gastos'}
@@ -10,6 +10,7 @@ const ListadoGastos = ({ gastos, setGastoEditar }) => {
                     key={gasto.id}
                     gasto={gasto}
                     setGastoEditar={setGastoEditar}
+                    eliminarGasto={eliminarGasto}
                 />
             ))}
         </div>
